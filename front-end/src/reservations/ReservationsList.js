@@ -20,15 +20,15 @@ function ReservationsList({ reservation }) {
     ) {
       try {
         await cancelReservation(reservation.reservation_id, abortController.signal);
-        
       } catch (error) {
         //catch any errors and set the errors to be displayed on ErrorAlert component
         return setReservationError([error.message, ...reservationError]);
       }
+      window.location.reload();
+      //history.push(`/dashboard?date=${reservation.reservation_date}`);
     }
-    history.goBack();
-    /*window.location.reload();*/
-
+   // window.location.reload();
+    /*history.goBack();*/
   };
 
   return (
@@ -66,7 +66,7 @@ function ReservationsList({ reservation }) {
                         </Link>
           </div>
           <div>
-            <button type="cancel" className="btn btn-warning btn-lg" onClick={handleCancelClick} data-reservation-id-cancel={`${reservation.reservation_id}`} >Cancel</button>
+            <button type="cancel" className="btn btn-warning btn-lg" onClick={handleCancelClick} data-reservation-id-cancel={`${reservation.reservation_id}`}>Cancel</button>
           </div>
         </div>
       </div>

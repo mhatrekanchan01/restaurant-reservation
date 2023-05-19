@@ -77,7 +77,7 @@ describe("US-08 - Change an existing reservation - E2E", () => {
         });
 
         const cancelButtonSelector = `[data-reservation-id-cancel="${reservation.reservation_id}"]`;
-
+        
         const cancelButton = await page.$(cancelButtonSelector);
 
         if (!cancelButton) {

@@ -54,7 +54,7 @@ function EditReservationsForm(){
         }catch(error){
           return setReservationError([ error.message, ...reservationError]);
         }  
-        history.push(`/reservations/`);
+        history.push(`/dashboard?date=${reservation.reservation_date}`);
     }
 
 
@@ -161,7 +161,7 @@ function EditReservationsForm(){
                 </div>
                 <br />
                 <div>
-                  <button type="submit" value="Submit" className="btn btn-primary btn-lg" onClick={() => console.log("Submitting Edit Form...")}>Submit</button>
+                  <button type="submit" value="Submit" className="btn btn-primary btn-lg">Submit</button>
                   <button type="cancel" className="btn btn-warning btn-lg" onClick={() => history.goBack()} >cancel</button>
                 </div>
             </form>

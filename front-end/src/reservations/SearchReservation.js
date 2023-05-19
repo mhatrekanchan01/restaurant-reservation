@@ -16,12 +16,18 @@ function SearchReservation(){
          });
         };
 
-       const handleSubmit = async(event) => {
-            event.preventDefault();  /* prevents page refresh */
+     const handleSubmit = async(event) => {
+        const abortController = new AbortController();
+            event.preventDefault();
             formData.mobile_number = Number(formData.mobile_number);
-                const response = await searchReservationByMobileNumber(formData.mobile_number);
+          try
+          {const response = await searchReservationByMobileNumber(formData.mobile_number, abortController.signal);
                   setformData(response);
-                  event.target.reset();
+                  event.target.reset();}
+                  catch(error){
+                    return console.log("Something went wrong", error);
+                  }
+                  return () => abortController.abort();
          }
     
          let reservationList = [];
@@ -33,10 +39,12 @@ function SearchReservation(){
                  </div>
                  )
              })
-         } if(formData.length === 0){
-            reservationList = <h3>**No reservations found**</h3>
-            
+         } 
+         if(formData.length === 0){
+            reservationList = <h3>**No reservations found**</h3>   
          }
+
+         
     return(
         <>
         <div className="container-fluid col-12 text-center p-3 mb-2 bg-light text-dark">
@@ -56,7 +64,7 @@ function SearchReservation(){
                 name="mobile_number"
                 className="form-control"
                 onChange={handleChange}
-                value={formData.mobile_number}
+                value={formData.value}
                 placeholder="Enter a customer's phone number" 
                 required
                 />   

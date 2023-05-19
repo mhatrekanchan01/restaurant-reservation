@@ -127,7 +127,7 @@ export async function cancelReservation(reservation_id, signal){
   const option = {
     method: "PUT",
     headers,
-    body: JSON.stringify({ data: { status: "cancelled" }}),
+    body: JSON.stringify({ data: { status: "cancelled"}}),
     signal,
   };
   return await fetchJson(url, option, {});
