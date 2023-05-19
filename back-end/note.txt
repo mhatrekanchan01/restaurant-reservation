@@ -1,0 +1,28 @@
+DATABASE_URL="postgres://xnayikzv:PGokxPwuPHLqx-h83tyc2PESnsd7ySK_@kashin.db.elephantsql.com/xnayikzv";
+DATABASE_URL_DEVELOPMENT="postgres://hecjvmaw:s6MrhgSJ6a66cj-0w9Dy4doDORolyUif@kashin.db.elephantsql.com/hecjvmaw";
+DATABASE_URL_TEST="postgres://caxvaexy:EKS8arZnZb0GQ8YW4ZXivhjEySioDrL8@kashin.db.elephantsql.com/caxvaexy";
+DATABASE_URL_PREVIEW="postgres://ynjtraly:PAIto088wxe69bB-CNLbWBZC8CuULE7I@kashin.db.elephantsql.com/ynjtraly";
+LOG_LEVEL=info;
+
+GET /reservations returns all reservations
+POST /reservations creates and returns a new reservation
+GET /reservations?date='YYYY-MM-DD' returns reservations by date (sorted asc)
+GET /reservations?mobile_number=123 returns reservations by partial match of phone number
+GET /reservations/:reservationId returns reservation matching the reservationId
+PUT /reservations/:reservationId updates and returns the reservation matching the reservationId
+PUT /reservations/:reservationId/status updates only the status of a reservation
+GET /tables returns all Tables
+POST /tables creates and returns a new table
+PUT /tables:table_id/seat updates a table with a reservationId and changes status to "occupied"
+Delete /tables:table_id/seat updates a table by deleting reservationId and changes status to "free"
+
+
+Request Type	Route	Description
+Get	/movies	Returns all movies currently in the database
+Get	/movies/is_showing=true	Returns all movies that are currently showing in theaters
+Get	/movies/:movieId	Returns a movie based on it's specific ID
+Get	/movies/:movieId/reviews	Returns all reviews for a specific movie
+Get	/movies/:movieId/theaters	Returns all theaters showing a specific movie
+Get	/theaters	Returns all theaters, including the movies shown at each theater
+Put	/reviews/:reviewId	Updates an existing review and returns the updated review with critic info
+Delete	/reviews/:reviewId	Deletes the review record based on a specific review ID

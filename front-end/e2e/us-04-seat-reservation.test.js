@@ -55,7 +55,6 @@ describe("US-04 - Seat reservation - E2E", () => {
         path: ".screenshots/us-04-create-table-submit-after.png",
         fullPage: true,
       });
-
       await expect(page).toMatch(tableName);
     });
     test("omitting table_name and submitting does not create a new table", async () => {
