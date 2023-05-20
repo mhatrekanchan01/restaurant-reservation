@@ -1,5 +1,9 @@
 # Capstone: Restaurant Reservation System
 
+Front-end Live at: https://restaurant-reservation-zijp-hn6dcx2kz-mhatrekanchan01.vercel.app/dashboard
+
+Back-end Live at: https://restaurant-reservation-rosy.vercel.app/tables
+
 > You have been hired as a full stack developer at _Periodic Tables_, a startup that is creating a reservation system for fine dining restaurants.
 > The software is used only by restaurant personnel when a customer calls to request a reservation.
 > At this point, the customers will not access the system online.
