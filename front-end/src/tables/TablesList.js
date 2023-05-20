@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { finishTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 
-
 function TablesList({table, reservation}){
+
+
 
 const [reservationError, setReservationError] = useState([]);
 
@@ -18,7 +19,7 @@ const handleFinishButton = async (event) => {
         window.confirm(
           "Is this table ready to seat new guests? This cannot be undone.\nEither OK or Cancel."
         )
-      ) 
+      ) {
         try {       
           await finishTable(table.table_id, abortController.signal); 
         } catch (error) {
@@ -26,8 +27,11 @@ const handleFinishButton = async (event) => {
           return setReservationError([error.message, ...reservationError]);
         }
         window.location.reload();
-
+      }
 }
+const hide = table.reservation_id  ?{}:{
+  display: 'none'
+};
 
 return(
     <>
@@ -46,7 +50,7 @@ return(
          </div>
          <li className="list-group-item">Capacity: {table.capacity}</li>
          <div>
-         <button data-table-id-finish={table.table_id} className="btn btn-primary mx-1 btn-lg" onClick={handleFinishButton}>Finish</button>
+         <button style={hide} data-table-id-finish={table.table_id} className="btn btn-primary mx-1 btn-lg" onClick={handleFinishButton}>Finish</button>
          </div>
         </div>
         {reservationError.length ? <ErrorAlert error={reservationError}/> : null}
