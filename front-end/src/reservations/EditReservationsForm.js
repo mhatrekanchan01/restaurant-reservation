@@ -45,14 +45,12 @@ function EditReservationsForm(){
         });
     }  
       async function handleSubmitForEdit(event) {
-        console.log("Submitting ...");
         const abortController = new AbortController();
         event.preventDefault();
         reservation.people = Number(reservation.people);
         try{
           const response = await editReservation({...reservation});
           setReservation({...response});
-          console.log(response);
         }catch(error){
           return setReservationError([ error.message, ...reservationError]);
         }  

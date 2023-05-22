@@ -30,7 +30,6 @@ function ReservationsForm(){
     
 
     async function handleSubmit(event){
-      console.log("Doosh ...");
         const abortController = new AbortController();
         event.preventDefault();  /* prevents page refresh */
         formData.people = Number(formData.people);
@@ -47,7 +46,6 @@ function ReservationsForm(){
         history.push(`/dashboard?date=${formData.reservation_date}`);
         //return () => abortController.abort();
      }
-     console.log(reservationError.length);
         return(
             <>
             <CreateAndEditReservationForm reservation={formData} handleChange={handleChange} handleSubmit={handleSubmit} reservationError={reservationError} /> 
