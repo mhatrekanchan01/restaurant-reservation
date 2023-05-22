@@ -80,6 +80,7 @@ async function listReservationsForDate(req, res){
     result = await reservationsService.listReservationsForDate(req.query.date);
   }
   if(mobile_number){
+    console.log(req.query);
   result = await reservationsService.listReservationsForMobileNumber(req.query.mobile_number);
   }
   res.status(200).json({data: result.map((element) => {return {...element, "reservation_date": element.reservation_date.toISOString().split('T')[0]}} 
@@ -235,7 +236,7 @@ module.exports = {
     hasRequiredProperties, 
     isValidReservation,
     checkReservationStatus,
-    reservationTimeIsTime,
+    reservationTimeIsTime,   
     dateIsInFuture,
     dayIsNotTuesday,
     asyncErrorBoundary(update),

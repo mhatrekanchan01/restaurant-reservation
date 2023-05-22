@@ -58,16 +58,16 @@ function SearchReservation(){
                         </h4>
                           
                       </label>
-                <input
-                id="mobile_number"
-                type="text"
-                name="mobile_number"
-                className="form-control"
-                onChange={handleChange}
-                value={formData.value}
-                placeholder="Enter a customer's phone number" 
-                required
-                />   
+                      <input
+                        id="mobile_number"
+                        type="tel"
+                        pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s./0-9]*$"
+                        name="mobile_number"
+                        className="form-control"
+                        onChange={handleChange}
+                        value={formData.value}
+                        placeholder="000-000-0000"
+                      />
             </div>
             {reservationList}
         <br />

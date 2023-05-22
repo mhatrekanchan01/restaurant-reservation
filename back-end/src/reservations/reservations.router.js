@@ -27,7 +27,6 @@ router
 .all(methodNotAllowed);
 
 
-router.route("/:reservation_id/status");
 
 
 module.exports = router;
