@@ -1,6 +1,6 @@
 # Capstone: Restaurant Reservation System
 
-Front-end Live at: https://restaurant-reservation-zijp-hn6dcx2kz-mhatrekanchan01.vercel.app/dashboard
+Front-end Live at: https://restaurant-reservation-zijp.vercel.app/search
 
 Back-end Live at: https://restaurant-reservation-rosy.vercel.app/tables
 
